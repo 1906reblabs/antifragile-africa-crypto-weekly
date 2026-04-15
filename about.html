@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Antifragile Africa Crypto</title>
+<meta name="description" content="The thesis, methodology, and agent architecture behind Antifragile Africa Crypto — institutional intelligence on African crypto markets.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #00355f;
+    --steel: #7399c6;
+    --sky: #acd4f1;
+    --charcoal: #231f20;
+    --mid: #58575a;
+    --white: #ffffff;
+    --accent-gold: #c9a84c;
+    --bg: #0a1a2a;
+    --surface: #0f2236;
+    --surface2: #162d46;
+    --border: rgba(115, 153, 198, 0.18);
+    --border-strong: rgba(115, 153, 198, 0.35);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1000; opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    background: rgba(10,26,42,0.97);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-strong);
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 0.95rem;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .nav-brand span { color: var(--sky); font-style: italic; }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--steel); }
+  .nav-cta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sky) !important;
+    border: 1px solid rgba(172,212,241,0.35);
+    padding: 0.3rem 0.9rem;
+    transition: background 0.2s, color 0.2s !important;
+  }
+  .nav-cta:hover { background: rgba(172,212,241,0.1) !important; }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 7rem 3rem 5rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .page-header::before {
+    content: 'ABOUT';
+    position: absolute;
+    right: -0.05em;
+    top: -0.1em;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(8rem, 18vw, 16rem);
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(115,153,198,0.06);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .page-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .page-kicker::before { content: ''; display: block; width: 28px; height: 1px; background: var(--steel); }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--white);
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+  }
+  .page-header h1 em { color: var(--sky); font-style: italic; }
+  .page-header-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    max-width: 560px;
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  /* SECTIONS */
+  .content-section {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .content-section:last-of-type { border-bottom: none; }
+
+  .section-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--steel);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .section-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 80px;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 2.5rem;
+  }
+  h2 em { color: var(--sky); font-style: italic; }
+
+  /* PROSE */
+  .prose { max-width: 680px; }
+  .prose p {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { color: var(--white); font-weight: 600; }
+  .prose em { color: var(--sky); font-style: italic; }
+
+  /* TWO COLUMN */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* PULLQUOTE */
+  .pullquote {
+    border-left: 3px solid var(--steel);
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
+    background: var(--surface);
+  }
+  .pullquote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.25rem !important;
+    line-height: 1.55 !important;
+    color: var(--sky) !important;
+    margin: 0 !important;
+  }
+
+  /* FRAMEWORKS */
+  .framework-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .framework-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .framework-card:hover { border-color: var(--steel); }
+  .framework-card::before {
+    content: attr(data-bg);
+    position: absolute;
+    bottom: -0.3em; right: -0.1em;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 6rem;
+    color: rgba(115,153,198,0.05);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .framework-author {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 0.2rem 0.6rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  .framework-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+  .framework-body {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .framework-application {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+  .framework-app-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .framework-app-text {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  /* AGENT SYSTEM */
+  .agent-pipeline {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .agent-row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 0;
+    position: relative;
+  }
+  .agent-row:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 29px;
+    top: 60px;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+    z-index: 1;
+  }
+  .agent-num-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+  .agent-dot {
+    width: 18px; height: 18px;
+    border: 2px solid var(--steel);
+    background: var(--bg);
+    flex-shrink: 0;
+    position: relative;
+  }
+  .agent-dot::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: var(--steel);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .agent-row:hover .agent-dot::after { opacity: 1; }
+  .agent-body {
+    padding: 1.2rem 0 2rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .agent-row:last-child .agent-body { border-bottom: none; }
+  .agent-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .agent-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+  }
+  .agent-desc {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+    margin-bottom: 0.8rem;
+  }
+  .agent-outputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .agent-output-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.52rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    border: 1px solid var(--border);
+    padding: 0.15rem 0.5rem;
+  }
+
+  /* AUDIT METHODOLOGY */
+  .audit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 1rem;
+  }
+  .audit-cell {
+    background: var(--surface);
+    padding: 1.8rem 1.5rem;
+    transition: background 0.2s;
+  }
+  .audit-cell:hover { background: var(--surface2); }
+  .audit-cell-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 2.2rem;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .audit-cell-num span { color: var(--steel); font-size: 1rem; }
+  .audit-cell-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .audit-cell-desc {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+  }
+
+  /* MANIFESTO */
+  .manifesto-section {
+    padding: 5rem 0;
+  }
+  .manifesto-block {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-left: 4px solid var(--steel);
+    padding: 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .manifesto-block::after {
+    content: '"';
+    position: absolute;
+    right: 2rem; top: -1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 14rem;
+    color: rgba(115,153,198,0.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .manifesto-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+  .manifesto-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    line-height: 1.65;
+    color: var(--sky);
+    max-width: 780px;
+  }
+  .manifesto-text strong {
+    font-style: normal;
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  /* DATA PRINCIPLES */
+  .principles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+    margin-top: 1rem;
+  }
+  .principle-row {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .principle-row:last-child { border-bottom: none; }
+  .principle-row:hover { background: var(--surface); }
+  .principle-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--steel);
+    padding: 1.2rem 1.5rem;
+    min-width: 60px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    padding-top: 1.4rem;
+  }
+  .principle-body {
+    padding: 1.2rem 1.8rem;
+  }
+  .principle-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 0.35rem;
+  }
+  .principle-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  /* CTA BOTTOM */
+  .cta-section {
+    padding: 5rem 0 4rem;
+    text-align: center;
+  }
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--white);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .cta-title em { color: var(--sky); font-style: italic; }
+  .cta-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 2.5rem;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.65;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--sky);
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    font-weight: 500;
+  }
+  .btn-primary:hover { background: var(--white); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--steel);
+    border: 1px solid var(--border-strong);
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--steel); color: var(--sky); transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 3rem;
+  }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--steel);
+  }
+  .footer-brand em { font-style: italic; color: var(--sky); }
+  .footer-links-row {
+    display: flex;
+    gap: 2rem;
+  }
+  .footer-links-row a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links-row a:hover { color: var(--steel); }
+  .footer-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    color: rgba(88,87,90,0.6);
+    letter-spacing: 0.08em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.7s ease both; }
+  .fade-up-1 { animation-delay: 0.1s; }
+  .fade-up-2 { animation-delay: 0.22s; }
+  .fade-up-3 { animation-delay: 0.34s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .page-header { padding: 4rem 1.5rem 3rem; }
+    .container { padding: 0 1.5rem; }
+    .two-col { grid-template-columns: 1fr; gap: 2rem; }
+    .framework-grid { grid-template-columns: 1fr; }
+    .audit-grid { grid-template-columns: 1fr 1fr; }
+    .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
+    .footer-links-row { justify-content: center; }
+  }
+  @media (max-width: 600px) {
+    .audit-grid { grid-template-columns: 1fr; }
+    .cta-buttons { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">Antifragile <span>Africa</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Reports</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="antifragile_africa_weekly_15apr2026.html" class="nav-cta">Latest Issue →</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-kicker fade-up fade-up-1">About This Publication</div>
+  <h1 class="fade-up fade-up-2">The Thesis.<br>The Method.<br><em>The Mission.</em></h1>
+  <p class="page-header-sub fade-up fade-up-3">
+    Antifragile Africa Crypto exists because the dominant narrative about African crypto markets is structurally wrong — and that wrongness creates opportunity for those willing to look closer.
+  </p>
+</div>
+
+<div class="container">
+
+  <!-- MANIFESTO -->
+  <section class="manifesto-section" id="thesis">
+    <div class="manifesto-block">
+      <span class="manifesto-title">The Founding Manifesto</span>
+      <div class="manifesto-text">
+        Africa already has the world's most advanced crypto use case <strong>in production, at scale, serving hundreds of millions of users.</strong> It just does not look like what the Western crypto industry built. It looks like informal trade settlement, diaspora remittances, shadow banking, and rational monetary self-defense. It is not coming. <strong>It is already here. And almost no one is measuring it correctly.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE THESIS -->
+  <section class="content-section">
+    <div class="section-eyebrow">Core Thesis</div>
+    <h2>Crypto in Africa is <em>Not Speculation</em></h2>
+    <div class="two-col">
+      <div class="prose">
+        <p>
+          The Western crypto industry has spent years projecting its own narrative onto African markets: that adoption is driven by enthusiasm for blockchain technology, DeFi innovation, and digital-asset speculation. This narrative is flattering to the industry and deeply incorrect as a description of reality.
+        </p>
+        <p>
+          <strong>African crypto adoption is driven by the failure of existing monetary infrastructure.</strong> The continent's average annual currency depreciation exceeds 18%. Capital controls make legitimate USD access expensive, slow, and uncertain. Correspondent banking restrictions have cut off large portions of the continent from global financial systems. Remittance operators extract 6–9% from every diaspora transfer.
+        </p>
+        <p>
+          Into this environment, stablecoins and P2P crypto networks are not a speculative novelty. They are the most functional financial tools available to the median African household, SME, and importer. The demand is structural, not cyclical. It intensifies precisely when global crypto sentiment is weakest — because that is when African monetary conditions are typically at their worst.
+        </p>
+        <div class="pullquote">
+          <p>"Every IMF Article IV consultation that tightens African FX controls increases the total addressable market for crypto by an order of magnitude."</p>
+        </div>
+        <p>
+          This publication exists to map this reality with institutional precision — and to surface the asymmetric opportunities that most allocators cannot see because they are applying the wrong analytical framework to the wrong market.
+        </p>
+      </div>
+      <div>
+        <div style="background:var(--surface); border:1px solid var(--border); padding:2.5rem; margin-bottom:1.5rem;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--steel); display:block; margin-bottom:1.5rem;">The Four Structural Roles</span>
+          <div style="display:flex; flex-direction:column; gap:1.2rem;">
+            <div style="display:flex; gap:1rem; align-items:flex-start;">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--steel); min-width:24px; padding-top:0.1rem;">01</span>
+              <div>
+                <div style="font-family:'Playfair Display',serif; font-weight:700; font-size:1rem; color:var(--white); margin-bottom:0.3rem;">FX Hedge</div>
+                <div style="font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.55;">Rational treasury management when local currency loses 20–30% annually</div>
+              </div>
+            </div>
+            <div style="display:flex; gap:1rem; align-items:flex-start;">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--steel); min-width:24px; padding-top:0.1rem;">02</span>
+              <div>
+                <div style="font-family:'Playfair Display',serif; font-weight:700; font-size:1rem; color:var(--white); margin-bottom:0.3rem;">Inflation Hedge</div>
+                <div style="font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.55;">Every inflation point above 15% correlates with measurable adoption growth</div>
+              </div>
+            </div>
+            <div style="display:flex; gap:1rem; align-items:flex-start;">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--steel); min-width:24px; padding-top:0.1rem;">03</span>
+              <div>
+                <div style="font-family:'Playfair Display',serif; font-weight:700; font-size:1rem; color:var(--white); margin-bottom:0.3rem;">Capital Flight Rail</div>
+                <div style="font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.55;">HNW capital, SME trade finance, and remittances migrating to crypto rails</div>
+              </div>
+            </div>
+            <div style="display:flex; gap:1rem; align-items:flex-start;">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--steel); min-width:24px; padding-top:0.1rem;">04</span>
+              <div>
+                <div style="font-family:'Playfair Display',serif; font-weight:700; font-size:1rem; color:var(--white); margin-bottom:0.3rem;">Shadow Banking System</div>
+                <div style="font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.55;">Informal, P2P, invisible to Western analytics — this is the real market</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTELLECTUAL FRAMEWORKS -->
+  <section class="content-section">
+    <div class="section-eyebrow">Intellectual Framework</div>
+    <h2>Thiel's Secrets. <em>Taleb's Antifragility.</em></h2>
+    <div class="framework-grid">
+      <div class="framework-card" data-bg="T">
+        <span class="framework-author">Peter Thiel · Zero to One</span>
+        <div class="framework-title">The Secrets Framework</div>
+        <div class="framework-body">
+          Thiel defines a "secret" as a truth that most people don't believe or haven't noticed. Secrets are the foundation of every valuable business and investment. They exist in the gap between what is widely understood and what is actually true.
+        </div>
+        <div class="framework-application">
+          <span class="framework-app-label">Applied to Africa</span>
+          <div class="framework-app-text">Every report surfaces at least one genuine secret about African crypto markets — an insight that most analysts would dispute, that contradicts consensus, and that, if correct, creates asymmetric opportunity. We test each insight against Thiel's question: "Would most smart people disagree with this?"</div>
+        </div>
+      </div>
+      <div class="framework-card" data-bg="N">
+        <span class="framework-author">Nassim Taleb · Antifragile</span>
+        <div class="framework-title">The Antifragility Framework</div>
+        <div class="framework-body">
+          Antifragile systems gain from disorder. They don't merely survive volatility — they get stronger from it. Taleb's framework inverts the conventional risk lens: instead of asking "what could go wrong," ask "what benefits from disorder."
+        </div>
+        <div class="framework-application">
+          <span class="framework-app-label">Applied to Africa</span>
+          <div class="framework-app-text">African crypto adoption is structurally antifragile. Currency collapses, banking restrictions, capital controls, and regulatory crackdowns all accelerate adoption. Every stressor strengthens the network. We map exactly how each form of disorder translates into adoption and capital flow opportunity.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENT SYSTEM -->
+  <section class="content-section" id="agents">
+    <div class="section-eyebrow">Agent Architecture</div>
+    <h2>Five Specialized <em>Intelligence Agents</em></h2>
+    <p style="font-size:0.95rem; color:rgba(255,255,255,0.45); margin-bottom:3rem; max-width:560px; line-height:1.65;">Each report is produced by five specialized agents running in sequence — each feeding context into the next — then consolidated, audited, and published.</p>
+
+    <div class="agent-pipeline" id="methodology">
+      <div class="agent-row">
+        <div class="agent-num-col"><div class="agent-dot"></div></div>
+        <div class="agent-body">
+          <span class="agent-tag">Agent 01 · Runs First</span>
+          <div class="agent-name">Macro Thesis Agent</div>
+          <div class="agent-desc">Defines the overarching narrative using Thiel and Taleb frameworks. Sets the context that all downstream agents must reinforce. Produces the executive summary, core thesis, antifragility analysis, and the "Narrative Arbitrage" section that critiques Western misunderstandings of African crypto markets.</div>
+          <div class="agent-outputs">
+            <span class="agent-output-tag">Executive Summary</span>
+            <span class="agent-output-tag">Core Thesis</span>
+            <span class="agent-output-tag">Antifragility Analysis</span>
+            <span class="agent-output-tag">Narrative Arbitrage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="agent-row">
+        <div class="agent-num-col"><div class="agent-dot"></div></div>
+        <div class="agent-body">
+          <span class="agent-tag">Agent 02 · Receives Macro Context</span>
+          <div class="agent-name">Stablecoin Flows Agent</div>
+          <div class="agent-desc">Maps stablecoin flows across Nigeria, Kenya, and South Africa. Tracks P2P premiums, FX dislocations, arbitrage windows, and capital flight indicators. Uses stablecoin spread as a real-time proxy for monetary stress — the most honest market signal available in each jurisdiction.</div>
+          <div class="agent-outputs">
+            <span class="agent-output-tag">P2P Spread Data</span>
+            <span class="agent-output-tag">FX Dislocations</span>
+            <span class="agent-output-tag">Arbitrage Signals</span>
+            <span class="agent-output-tag">Capital Flight Indicators</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="agent-row">
+        <div class="agent-num-col"><div class="agent-dot"></div></div>
+        <div class="agent-body">
+          <span class="agent-tag">Agent 03 · Receives Macro Context</span>
+          <div class="agent-name">Regulatory Intelligence Agent</div>
+          <div class="agent-desc">Classifies all 54 African states across four categories: OPEN, RESTRICTIVE, AMBIGUOUS, EMERGING. Tracks silent signals — bank-level derisking, informal constraints, enforcement trends. Identifies regulatory arbitrage: jurisdictions enabling growth, routing strategies, and the counterintuitive insight that restriction accelerates informal adoption.</div>
+          <div class="agent-outputs">
+            <span class="agent-output-tag">54-State Map</span>
+            <span class="agent-output-tag">Silent Signals</span>
+            <span class="agent-output-tag">Regulatory Arbitrage</span>
+            <span class="agent-output-tag">Capital Impact Analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="agent-row">
+        <div class="agent-num-col"><div class="agent-dot"></div></div>
+        <div class="agent-body">
+          <span class="agent-tag">Agent 04 · Receives Macro + Stablecoin Context</span>
+          <div class="agent-name">OTC Market Intelligence Agent</div>
+          <div class="agent-desc">Surfaces the hidden market: Telegram desks, WhatsApp corridors, informal OTC hubs in Lagos, Nairobi, Johannesburg, Accra, Dar es Salaam, and Addis Ababa. Maps liquidity, dealer positioning, stress signals, and shadow pricing behavior that never appears on-chain or in centralized exchange data.</div>
+          <div class="agent-outputs">
+            <span class="agent-output-tag">Liquidity Hub Mapping</span>
+            <span class="agent-output-tag">Dealer Behavior</span>
+            <span class="agent-output-tag">Shadow Pricing</span>
+            <span class="agent-output-tag">Stress Signals</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="agent-row">
+        <div class="agent-num-col"><div class="agent-dot"></div></div>
+        <div class="agent-body">
+          <span class="agent-tag">Agent 05 · Synthesizes All Prior Outputs</span>
+          <div class="agent-name">Capital Flows & Hidden Trades Agent</div>
+          <div class="agent-desc">The synthesis layer. Integrates all prior agent outputs into a unified capital flow picture, identifies country-level movement, and produces 3–5 hidden trades per issue. Each trade must be non-obvious, asymmetric, and accompanied by a clear explanation of why the market is mispricing it. Also produces the Forward Signals section.</div>
+          <div class="agent-outputs">
+            <span class="agent-output-tag">Capital Flow Direction</span>
+            <span class="agent-output-tag">Hidden Trades (3–5)</span>
+            <span class="agent-output-tag">Forward Signals</span>
+            <span class="agent-output-tag">Asymmetric Opportunities</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIT SYSTEM -->
+  <section class="content-section">
+    <div class="section-eyebrow">Quality Control</div>
+    <h2>The <em>Audit System</em></h2>
+    <p style="font-size:0.95rem; color:rgba(255,255,255,0.45); margin-bottom:2.5rem; max-width:560px; line-height:1.65;">Every report is scored across eight dimensions before publication. Minimum average: 4.0/5. No category below 3. Weak sections are regenerated and re-audited before release.</p>
+
+    <div class="audit-grid">
+      <div class="audit-cell">
+        <div class="audit-cell-num">01<span>/5</span></div>
+        <span class="audit-cell-label">Insight Quality</span>
+        <div class="audit-cell-desc">Each section must contain at least one non-obvious, Africa-specific idea. Generic crypto commentary is a fail condition.</div>
+      </div>
+      <div class="audit-cell">
+        <div class="audit-cell-num">02<span>/5</span></div>
+        <span class="audit-cell-label">Originality</span>
+        <div class="audit-cell-desc">Thiel test: would most crypto analysts dispute or overlook this? Pass only if the insight reveals a genuine secret.</div>
+      </div>
+      <div class="audit-cell">
+        <div class="audit-cell-num">03<span>/5</span></div>
+        <span class="audit-cell-label">Antifragility</span>
+        <div class="audit-cell-desc">Report must explain how volatility benefits crypto adoption — not just describe risk. Taleb's frame, applied.</div>
+      </div>
+      <div class="audit-cell">
+        <div class="audit-cell-num">04<span>/5</span></div>
+        <span class="audit-cell-label">Data Plausibility</span>
+        <div class="audit-cell-desc">Simulated data must be consistent with macro conditions. No unrealistic precision. Signals must cohere across agents.</div>
+      </div>
+      <div class="audit-cell">
+        <div class="audit-cell-num">05<span>/5</span></div>
+        <span class="audit-cell-label">Consistency</span>
+        <div class="audit-cell-desc">Stablecoin flows must align with capital flows. Regulation must align with OTC behavior. No cross-agent contradictions.</div>
+      </div>
+      <div class="audit-cell">
+        <div class="audit-cell-num">06<span>/5</span></div>
+        <span class="audit-cell-label">Insight Density</span>
+        <div class="audit-cell-desc">Minimum 2–3 unique insights per section. Redundancy across sections is eliminated. Every paragraph earns its place.</div>
+      </div>
+      <div class="audit-cell">
+        <div class="audit-cell-num">07<span>/5</span></div>
+        <span class="audit-cell-label">Trade Quality</span>
+        <div class="audit-cell-desc">Each hidden trade must include a clear mispricing reason, non-obvious angle, and asymmetric upside. No obvious tokens.</div>
+      </div>
+      <div class="audit-cell">
+        <div class="audit-cell-num">08<span>/5</span></div>
+        <span class="audit-cell-label">Narrative Strength</span>
+        <div class="audit-cell-desc">Report must be intellectually sharp, challenge Western assumptions, and hold a clear institutional point of view.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA PRINCIPLES -->
+  <section class="content-section">
+    <div class="section-eyebrow">Data Methodology</div>
+    <h2>How We Handle <em>Data</em></h2>
+    <div class="principles-list">
+      <div class="principle-row">
+        <div class="principle-num">P1</div>
+        <div class="principle-body">
+          <div class="principle-title">Simulated but Plausible</div>
+          <div class="principle-desc">Where real-time data is unavailable, we simulate realistic signals based on known FX conditions, inflation rates, and adoption trends. Simulated data is always labeled. We do not hallucinate precise statistics or claim false precision.</div>
+        </div>
+      </div>
+      <div class="principle-row">
+        <div class="principle-num">P2</div>
+        <div class="principle-body">
+          <div class="principle-title">Informal Markets First</div>
+          <div class="principle-desc">The majority of African crypto volume is P2P, OTC, and off-chain. We prioritize signals from the informal market over on-chain data from centralized exchanges — because that is where the real market lives.</div>
+        </div>
+      </div>
+      <div class="principle-row">
+        <div class="principle-num">P3</div>
+        <div class="principle-body">
+          <div class="principle-title">Spread as Signal</div>
+          <div class="principle-desc">P2P stablecoin premiums are treated as the most reliable real-time indicator of monetary stress in each market. A widening spread is not an anomaly — it is the market's honest assessment of local currency risk.</div>
+        </div>
+      </div>
+      <div class="principle-row">
+        <div class="principle-num">P4</div>
+        <div class="principle-body">
+          <div class="principle-title">No BTC/ETH Price Focus</div>
+          <div class="principle-desc">We do not track BTC or ETH prices as primary signals. African crypto adoption is stablecoin-dominated and countercyclical to global crypto sentiment. Price action in developed markets is largely irrelevant to our thesis.</div>
+        </div>
+      </div>
+      <div class="principle-row">
+        <div class="principle-num">P5</div>
+        <div class="principle-body">
+          <div class="principle-title">Compounding Intelligence</div>
+          <div class="principle-desc">Each issue builds on prior reports. Repeated signals increase confidence. Invalidated theses are explicitly noted. Over time, we build a proprietary dataset of African crypto flow patterns that cannot be replicated without our archive.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-title">Ready to see the<br><em>invisible market?</em></div>
+    <p class="cta-sub">Read the inaugural issue — 9 sections, 5 agents, 5 hidden trades, 54 African states classified.</p>
+    <div class="cta-buttons">
+      <a href="antifragile_africa_weekly_15apr2026.html" class="btn-primary">Read Vol. 01 →</a>
+      <a href="index.html" class="btn-secondary">All Reports</a>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-brand">Antifragile <em>Africa</em> Crypto</div>
+    <div class="footer-links-row">
+      <a href="index.html">Reports</a>
+      <a href="about.html">About</a>
+      <a href="antifragile_africa_weekly_15apr2026.html">Latest Issue</a>
+    </div>
+    <span class="footer-note">© 2026 · Not financial advice · For institutional use only</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antifragile Africa Crypto — Weekly Intelligence</title>
+<meta name="description" content="Institutional-grade intelligence on African crypto markets. Capital flows, regulatory arbitrage, OTC signals, and hidden trades for frontier market allocators.">
+<meta property="og:title" content="Antifragile Africa Crypto">
+<meta property="og:description" content="Institutional-grade intelligence on African crypto markets — where disorder becomes advantage.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #00355f;
+    --steel: #7399c6;
+    --sky: #acd4f1;
+    --charcoal: #231f20;
+    --mid: #58575a;
+    --white: #ffffff;
+    --accent-gold: #c9a84c;
+    --bg: #0a1a2a;
+    --surface: #0f2236;
+    --surface2: #162d46;
+    --border: rgba(115, 153, 198, 0.18);
+    --border-strong: rgba(115, 153, 198, 0.35);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  /* GRAIN */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1000; opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    background: rgba(10,26,42,0.97);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-strong);
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 0.95rem;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .nav-brand span { color: var(--sky); font-style: italic; }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--steel); }
+  .nav-cta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sky) !important;
+    border: 1px solid rgba(172,212,241,0.35);
+    padding: 0.3rem 0.9rem;
+    transition: background 0.2s, color 0.2s !important;
+  }
+  .nav-cta:hover { background: rgba(172,212,241,0.1) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 6rem 3rem 5rem;
+    position: relative;
+    z-index: 2;
+    border-right: 1px solid var(--border);
+  }
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 6rem 3rem 5rem;
+    position: relative;
+  }
+
+  /* Big background word */
+  .hero::before {
+    content: 'ANTIFRAGILE';
+    position: absolute;
+    bottom: -0.15em;
+    left: -0.03em;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(6rem, 14vw, 13rem);
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(115,153,198,0.06);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .hero-kicker::before {
+    content: '';
+    display: block;
+    width: 28px; height: 1px;
+    background: var(--steel);
+    flex-shrink: 0;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 5.5vw, 5rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em { color: var(--sky); font-style: italic; }
+
+  .hero-tagline {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    max-width: 420px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--sky);
+    padding: 0.75rem 1.6rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    font-weight: 500;
+  }
+  .btn-primary:hover { background: var(--white); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--steel);
+    border: 1px solid var(--border-strong);
+    padding: 0.75rem 1.6rem;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--steel); color: var(--sky); transform: translateY(-1px); }
+
+  /* Hero right — stat block */
+  .hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .hero-stat-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-stat-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 2.8rem;
+    line-height: 1;
+    color: var(--white);
+    min-width: 90px;
+  }
+  .stat-num em { color: var(--sky); font-style: normal; font-size: 1.4rem; }
+  .stat-desc {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.55;
+    max-width: 200px;
+  }
+
+  .hero-thesis {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--steel);
+    padding: 1.5rem;
+  }
+  .thesis-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+  .thesis-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--sky);
+    line-height: 1.55;
+  }
+
+  /* TICKER STRIP */
+  .ticker {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .ticker-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--steel);
+    padding: 0 1.2rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+    z-index: 2;
+  }
+  .ticker-track {
+    display: flex;
+    animation: tickerScroll 40s linear infinite;
+    white-space: nowrap;
+    padding-left: 2rem;
+  }
+  .ticker-track:hover { animation-play-state: paused; }
+  @keyframes tickerScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .ticker-item {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.5);
+    padding: 0 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .ticker-item .ti-label { color: var(--steel); }
+  .ticker-item .ti-val { color: rgba(255,255,255,0.75); }
+  .ticker-up { color: #4fc98a; }
+  .ticker-down { color: #e05c5c; }
+  .ticker-sep { color: var(--border-strong); margin: 0 0.5rem; }
+
+  /* CONTAINER */
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  /* SECTION HEADS */
+  .section-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--steel);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .section-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 80px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .section-title em { color: var(--sky); font-style: italic; }
+  .section-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 3rem;
+    max-width: 480px;
+  }
+
+  /* LATEST ISSUE — FEATURED */
+  .featured-issue {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .featured-card {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 3rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .featured-card:hover { border-color: var(--steel); }
+  .featured-body { padding: 3rem; }
+  .featured-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+  }
+  .featured-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--steel);
+    color: var(--bg);
+    padding: 0.2rem 0.6rem;
+  }
+  .featured-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--mid);
+  }
+  .featured-vol {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--mid);
+  }
+  .featured-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 1rem;
+    text-decoration: none;
+    display: block;
+  }
+  .featured-title:hover { color: var(--sky); }
+  .featured-desc {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  .featured-highlights {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  .featured-highlights li {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+  .featured-highlights li::before {
+    content: '→';
+    color: var(--steel);
+    flex-shrink: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    padding-top: 0.05rem;
+  }
+  .featured-sidebar {
+    background: var(--surface2);
+    border-left: 1px solid var(--border);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .sidebar-block-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+  .sidebar-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .sidebar-metric:last-child { border-bottom: none; padding-bottom: 0; }
+  .sidebar-country {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--mid);
+    letter-spacing: 0.1em;
+  }
+  .sidebar-val {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--white);
+    line-height: 1;
+  }
+  .sidebar-note {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.4;
+  }
+  .sidebar-trend-up { color: #4fc98a; font-size: 0.7rem; font-family: 'IBM Plex Mono', monospace; }
+  .sidebar-trend-down { color: #e05c5c; font-size: 0.7rem; font-family: 'IBM Plex Mono', monospace; }
+  .sidebar-trend-neutral { color: var(--sky); font-size: 0.7rem; font-family: 'IBM Plex Mono', monospace; }
+
+  /* ARCHIVE GRID */
+  .archive-section {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .archive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .archive-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    text-decoration: none;
+    display: block;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .archive-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--navy), var(--steel), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .archive-card:hover { border-color: var(--steel); transform: translateY(-2px); }
+  .archive-card:hover::after { transform: scaleX(1); }
+  .archive-card-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .archive-card-vol {
+    display: inline-block;
+    background: rgba(115,153,198,0.1);
+    border: 1px solid var(--border);
+    padding: 0.1rem 0.4rem;
+    font-size: 0.52rem;
+    color: var(--mid);
+  }
+  .archive-card-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.2;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+  .archive-card-desc {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+  .archive-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .archive-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.52rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    border: 1px solid var(--border);
+    padding: 0.15rem 0.45rem;
+  }
+  .archive-card-coming {
+    position: absolute;
+    inset: 0;
+    background: rgba(10,26,42,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .coming-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mid);
+    border: 1px solid var(--border);
+    padding: 0.4rem 1rem;
+  }
+
+  /* THESIS SECTION */
+  .thesis-section {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .thesis-pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 2.5rem;
+  }
+  .pillar {
+    background: var(--surface);
+    padding: 2.5rem 1.8rem;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .pillar:hover { background: var(--surface2); }
+  .pillar-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 5rem;
+    color: rgba(115,153,198,0.06);
+    position: absolute;
+    top: -0.5rem;
+    right: 0.5rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .pillar-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .pillar-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 0.6rem;
+  }
+  .pillar-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.65;
+  }
+
+  /* NEWSLETTER STRIP */
+  .newsletter-strip {
+    padding: 5rem 0;
+  }
+  .newsletter-inner {
+    background: var(--surface2);
+    border: 1px solid var(--border-strong);
+    padding: 3.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .newsletter-inner::before {
+    content: '✉';
+    position: absolute;
+    right: 2rem;
+    bottom: -1rem;
+    font-size: 10rem;
+    color: rgba(115,153,198,0.04);
+    pointer-events: none;
+    line-height: 1;
+  }
+  .newsletter-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+  .newsletter-title em { color: var(--sky); font-style: italic; }
+  .newsletter-sub {
+    font-size: 0.93rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+  }
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .form-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+  .form-row {
+    display: flex;
+    gap: 0;
+  }
+  .form-row input[type="email"] {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+    border-right: none;
+    color: var(--white);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    padding: 0.75rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-row input[type="email"]::placeholder { color: var(--mid); }
+  .form-row input[type="email"]:focus { border-color: var(--steel); }
+  .form-row button {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--steel);
+    color: var(--bg);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .form-row button:hover { background: var(--sky); }
+  .form-disclaimer {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.5;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 3rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .footer-brand-block .brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+  .footer-brand-block .brand em { color: var(--sky); font-style: italic; }
+  .footer-brand-block p {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.65;
+    max-width: 260px;
+  }
+  .footer-col-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .footer-links a {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--steel); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1140px;
+    margin: 2rem auto 0;
+    padding: 0;
+  }
+  .footer-copy {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--mid);
+    text-transform: uppercase;
+  }
+  .footer-disclaimer {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    color: rgba(88,87,90,0.6);
+    text-align: right;
+    max-width: 480px;
+    line-height: 1.5;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.7s ease both; }
+  .fade-up-1 { animation-delay: 0.1s; }
+  .fade-up-2 { animation-delay: 0.22s; }
+  .fade-up-3 { animation-delay: 0.34s; }
+  .fade-up-4 { animation-delay: 0.46s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 4rem 1.5rem 2.5rem; border-right: none; border-bottom: 1px solid var(--border); }
+    .hero-right { padding: 2.5rem 1.5rem 3rem; }
+    .container { padding: 0 1.5rem; }
+    .featured-card { grid-template-columns: 1fr; }
+    .featured-sidebar { border-left: none; border-top: 1px solid var(--border); flex-direction: row; flex-wrap: wrap; }
+    .archive-grid { grid-template-columns: 1fr 1fr; }
+    .thesis-pillars { grid-template-columns: 1fr 1fr; }
+    .newsletter-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .archive-grid { grid-template-columns: 1fr; }
+    .thesis-pillars { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 1rem; }
+    .footer-disclaimer { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">Antifragile <span>Africa</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Reports</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="antifragile_africa_weekly_15apr2026.html" class="nav-cta">Latest Issue →</a></li>
+  </ul>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-label">Live Signals</div>
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ti-label">NGN P2P PREMIUM</span><span class="ti-val">~14%</span><span class="ticker-up">↑ WIDENING</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="ti-label">KES SPREAD</span><span class="ti-val">~4%</span><span class="ticker-item" style="color:var(--sky)">→ STABLE</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="ti-label">ZAR PREMIUM</span><span class="ti-val">~3%</span><span class="ticker-down">↓ COMPRESSING</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="ti-label">ETB PARALLEL</span><span class="ti-val">~30%</span><span class="ticker-up">↑ ELEVATED</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="ti-label">LAGOS OTC</span><span class="ti-val">$80–120M/WK</span><span class="ticker-up">HIGH LIQ</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="ti-label">KENYA VASP</span><span class="ti-val">CONSULTATION OPEN</span><span class="ticker-up">WATCH</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="ti-label">MARKETS COVERED</span><span class="ti-val">54 AFRICAN STATES</span></span>
+    <span class="ticker-sep">·</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item"><span class="ti-label">NGN P2P PREMIUM</span><span class="ti-val">~14%</span><span class="ticker-up">↑ WIDENING</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="ti-label">KES SPREAD</span><span class="ti-val">~4%</span><span class="ticker-item" style="color:var(--sky)">→ STABLE</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="ti-label">ZAR PREMIUM</span><span class="ti-val">~3%</span><span class="ticker-down">↓ COMPRESSING</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="ti-label">ETB PARALLEL</span><span class="ti-val">~30%</span><span class="ticker-up">↑ ELEVATED</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="ti-label">LAGOS OTC</span><span class="ti-val">$80–120M/WK</span><span class="ticker-up">HIGH LIQ</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="ti-label">KENYA VASP</span><span class="ti-val">CONSULTATION OPEN</span><span class="ticker-up">WATCH</span></span>
+    <span class="ticker-sep">·</span>
+    <span class="ticker-item"><span class="ti-label">MARKETS COVERED</span><span class="ti-val">54 AFRICAN STATES</span></span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-kicker fade-up fade-up-1">Weekly Intelligence · Est. April 2026</div>
+    <h1 class="fade-up fade-up-2">Where Disorder<br>Becomes <em>Advantage</em></h1>
+    <p class="hero-tagline fade-up fade-up-3">
+      Institutional-grade intelligence on African crypto markets. Capital flows, regulatory arbitrage, OTC signals, and hidden trades — for allocators who understand that Africa's monetary dysfunction is crypto's greatest growth engine.
+    </p>
+    <div class="hero-cta-group fade-up fade-up-4">
+      <a href="antifragile_africa_weekly_15apr2026.html" class="btn-primary">Read Latest Issue →</a>
+      <a href="about.html" class="btn-secondary">Our Thesis</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats fade-up fade-up-2">
+      <div class="hero-stat-row">
+        <div class="stat-num">54<em>+</em></div>
+        <div class="stat-desc">African states tracked weekly across all regulatory classifications</div>
+      </div>
+      <div class="hero-stat-row">
+        <div class="stat-num">5</div>
+        <div class="stat-desc">Specialized intelligence agents synthesized per report</div>
+      </div>
+      <div class="hero-stat-row">
+        <div class="stat-num">$1<em>T+</em></div>
+        <div class="stat-desc">Estimated annual informal crypto-adjacent capital flows on the continent</div>
+      </div>
+    </div>
+    <div class="hero-thesis fade-up fade-up-3">
+      <span class="thesis-label">Core Thesis</span>
+      <div class="thesis-text">"Africa already has the world's most advanced crypto use case in production, at scale. It just doesn't look like what the Western industry built."</div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- LATEST ISSUE -->
+  <section class="featured-issue">
+    <div class="section-eyebrow">Latest Report</div>
+    <div class="section-title">This Week's <em>Intelligence</em></div>
+    <p class="section-sub">Vol. 1 — 15 April 2026 — 5 agents, 9 sections, 2,800 words</p>
+
+    <div class="featured-card">
+      <div class="featured-body">
+        <div class="featured-meta">
+          <span class="featured-badge">Latest</span>
+          <span class="featured-date">15 April 2026</span>
+          <span class="featured-vol">Vol. 01</span>
+        </div>
+        <a href="antifragile_africa_weekly_15apr2026.html" class="featured-title">
+          Antifragile Africa Crypto<br>Weekly Intelligence Report
+        </a>
+        <p class="featured-desc">
+          The inaugural issue maps stablecoin premiums across Nigeria, Kenya, and South Africa; classifies all 54 African states by regulatory posture; surfaces five hidden trades including the Lagos–Abidjan corridor and the M-Pesa stablecoin bridge layer; and dismantles four structural errors in Western crypto's Africa narrative.
+        </p>
+        <ul class="featured-highlights">
+          <li>Nigeria's ~14% USDT P2P premium is not a distortion — it is the true cost of holding naira</li>
+          <li>Kenya's VASP consultation creates a 12–24 month first-mover window for crypto domicile</li>
+          <li>Lagos OTC desks are net long USDT against structural supply gaps — not speculative positioning</li>
+          <li>Every IMF FX tightening expands crypto's addressable market by an order of magnitude</li>
+          <li>Western analytics firms see ~20–30% of actual African crypto volume: the rest is invisible</li>
+        </ul>
+        <a href="antifragile_africa_weekly_15apr2026.html" class="btn-primary">Read Full Report →</a>
+      </div>
+      <div class="featured-sidebar">
+        <span class="sidebar-block-label">This Week's Spreads</span>
+        <div class="sidebar-metric">
+          <div class="sidebar-country">Nigeria · NGN</div>
+          <div class="sidebar-val">~14%</div>
+          <div class="sidebar-trend-up">↑ Widening</div>
+          <div class="sidebar-note">USDT P2P premium vs. official rate</div>
+        </div>
+        <div class="sidebar-metric">
+          <div class="sidebar-country">Kenya · KES</div>
+          <div class="sidebar-val">~4%</div>
+          <div class="sidebar-trend-neutral">→ Stable</div>
+          <div class="sidebar-note">USDT P2P premium</div>
+        </div>
+        <div class="sidebar-metric">
+          <div class="sidebar-country">South Africa · ZAR</div>
+          <div class="sidebar-val">~3%</div>
+          <div class="sidebar-trend-down">↓ Compressing</div>
+          <div class="sidebar-note">USDT premium vs. official rate</div>
+        </div>
+        <div class="sidebar-metric">
+          <div class="sidebar-country">Audit Score</div>
+          <div class="sidebar-val" style="color:#4fc98a">4.75</div>
+          <div class="sidebar-note">Out of 5.0 — PASS ✓</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHIVE -->
+  <section class="archive-section">
+    <div class="section-eyebrow">Archive</div>
+    <div class="section-title">All <em>Reports</em></div>
+    <p class="section-sub">Every issue, permanently available. Intelligence compounds.</p>
+
+    <div class="archive-grid">
+      <!-- Vol 1 - live -->
+      <a href="antifragile_africa_weekly_15apr2026.html" class="archive-card">
+        <div class="archive-card-date">
+          15 April 2026
+          <span class="archive-card-vol">Vol. 01</span>
+        </div>
+        <div class="archive-card-title">Inaugural Report: The Invisible Market</div>
+        <div class="archive-card-desc">Lagos–Abidjan corridor. VASP first-mover window. Nigeria's shadow GDP. 54-state regulatory map. Five hidden trades.</div>
+        <div class="archive-card-tags">
+          <span class="archive-tag">Nigeria</span>
+          <span class="archive-tag">Kenya</span>
+          <span class="archive-tag">South Africa</span>
+          <span class="archive-tag">OTC</span>
+          <span class="archive-tag">Regulation</span>
+        </div>
+      </a>
+
+      <!-- Vol 2 - coming -->
+      <div class="archive-card" style="pointer-events:none; opacity:0.5;">
+        <div class="archive-card-date">
+          22 April 2026
+          <span class="archive-card-vol">Vol. 02</span>
+        </div>
+        <div class="archive-card-title">Next Issue</div>
+        <div class="archive-card-desc">Stablecoin flows update · Regulatory developments · New hidden trades</div>
+        <div class="archive-card-tags">
+          <span class="archive-tag">Coming Soon</span>
+        </div>
+        <div class="archive-card-coming"><span class="coming-label">Publishing 22 Apr</span></div>
+      </div>
+
+      <!-- Vol 3 - coming -->
+      <div class="archive-card" style="pointer-events:none; opacity:0.35;">
+        <div class="archive-card-date">
+          29 April 2026
+          <span class="archive-card-vol">Vol. 03</span>
+        </div>
+        <div class="archive-card-title">Coming Soon</div>
+        <div class="archive-card-desc">Weekly intelligence continues to compound.</div>
+        <div class="archive-card-tags">
+          <span class="archive-tag">Coming Soon</span>
+        </div>
+        <div class="archive-card-coming"><span class="coming-label">Publishing 29 Apr</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THESIS PILLARS -->
+  <section class="thesis-section">
+    <div class="section-eyebrow">Core Framework</div>
+    <div class="section-title">Crypto in Africa is <em>Not Speculation</em></div>
+    <p class="section-sub">Four structural roles — enforced across every report, every week.</p>
+
+    <div class="thesis-pillars">
+      <div class="pillar">
+        <span class="pillar-num">1</span>
+        <span class="pillar-icon">🛡️</span>
+        <div class="pillar-title">FX Hedge</div>
+        <div class="pillar-desc">In markets where currency depreciation exceeds 18% annually, holding stablecoins is not speculation. It is rational treasury management.</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">2</span>
+        <span class="pillar-icon">🔥</span>
+        <div class="pillar-title">Inflation Hedge</div>
+        <div class="pillar-desc">Every percentage point of inflation above 15% correlates with measurable stablecoin adoption growth. Disorder is the engine, not the barrier.</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">3</span>
+        <span class="pillar-icon">✈️</span>
+        <div class="pillar-title">Capital Flight Rail</div>
+        <div class="pillar-desc">High-net-worth capital, SME trade flows, and diaspora remittances are all migrating to crypto rails — not for ideology, but for efficiency.</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">4</span>
+        <span class="pillar-icon">🏗️</span>
+        <div class="pillar-title">Shadow Banking</div>
+        <div class="pillar-desc">The real African crypto market is informal, P2P, and invisible to Western analytics. This is not a bug. It is the entire story.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter-strip">
+    <div class="newsletter-inner">
+      <div>
+        <div class="section-eyebrow">Stay Informed</div>
+        <div class="newsletter-title">Weekly intelligence<br><em>delivered direct</em></div>
+        <p class="newsletter-sub">
+          Every Tuesday — institutional-grade analysis of African crypto capital flows, regulatory shifts, OTC signals, and asymmetric opportunities. No noise. No speculation theater.
+        </p>
+      </div>
+      <div class="newsletter-form">
+        <span class="form-note">Subscribe to the weekly report</span>
+        <div class="form-row">
+          <input type="email" placeholder="your@email.com">
+          <button type="button">Subscribe</button>
+        </div>
+        <p class="form-disclaimer">
+          Institutional and professional allocators only. No financial advice. Simulated data where noted. Unsubscribe at any time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand-block">
+      <span class="brand">Antifragile <em>Africa</em></span>
+      <p>Institutional intelligence on African crypto markets. Built on Thiel's secrets and Taleb's antifragility — for allocators who understand that disorder is the opportunity.</p>
+    </div>
+    <div>
+      <span class="footer-col-title">Reports</span>
+      <ul class="footer-links">
+        <li><a href="antifragile_africa_weekly_15apr2026.html">Vol. 01 — 15 Apr 2026</a></li>
+        <li><a href="#">Vol. 02 — Coming Soon</a></li>
+        <li><a href="#">Archive</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="footer-col-title">Publication</span>
+      <ul class="footer-links">
+        <li><a href="about.html">About & Thesis</a></li>
+        <li><a href="about.html#methodology">Methodology</a></li>
+        <li><a href="about.html#agents">Agent System</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="footer-col-title">Coverage</span>
+      <ul class="footer-links">
+        <li><a href="#">Nigeria · Lagos OTC</a></li>
+        <li><a href="#">Kenya · East Africa</a></li>
+        <li><a href="#">South Africa · ZAR</a></li>
+        <li><a href="#">54 African States</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Antifragile Africa Crypto · All Rights Reserved</span>
+    <span class="footer-disclaimer">For institutional and professional use only. Not financial advice. Simulated data where noted. All figures are estimates or model outputs. Past signals do not guarantee future accuracy.</span>
+  </div>
+</footer>
+
+</body>
+</html>
