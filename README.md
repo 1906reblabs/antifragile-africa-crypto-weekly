@@ -57,28 +57,6 @@ capital controls
 banking restrictions
 Agent Architecture
 
-Each report is generated using a multi-agent system, where specialized agents operate sequentially:
-
-Agent 1 — Macro Thesis Agent
-Defines narrative and core thesis
-Produces executive summary and antifragility analysis
-Agent 2 — Stablecoin Flows Agent
-Tracks P2P spreads and FX dislocations
-Identifies arbitrage and capital flight signals
-Agent 3 — Regulatory Intelligence Agent
-Maps all 54 African countries
-Detects regulatory trends and arbitrage opportunities
-Agent 4 — OTC Market Intelligence Agent
-Surfaces informal market activity
-Tracks liquidity, dealer behavior, and shadow pricing
-Agent 5 — Capital Flows & Hidden Trades Agent
-Synthesizes all inputs
-Produces:
-capital flow analysis
-hidden trade opportunities
-forward-looking signals
-Audit System
-
 Every report undergoes a strict evaluation process across 8 dimensions:
 
 Insight Quality
@@ -135,10 +113,10 @@ Macro analysts
 Crypto funds
 Policy researchers
 Builders focused on African markets
+
 Disclaimer
 
 This publication is for informational purposes only.
-
 Not financial advice.
 For institutional and research use only.
 
