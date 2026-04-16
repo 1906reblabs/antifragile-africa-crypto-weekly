@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disclaimer — Antifragile Africa Crypto</title>
+<meta name="description" content="Disclaimer for Antifragile Africa Crypto — important information about the nature, limitations, and intended use of our intelligence publication.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #00355f;
+    --steel: #7399c6;
+    --sky: #acd4f1;
+    --charcoal: #231f20;
+    --mid: #58575a;
+    --white: #ffffff;
+    --accent-gold: #c9a84c;
+    --bg: #0a1a2a;
+    --surface: #0f2236;
+    --surface2: #162d46;
+    --border: rgba(115, 153, 198, 0.18);
+    --border-strong: rgba(115, 153, 198, 0.35);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1000; opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    background: rgba(10,26,42,0.97);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-strong);
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 0.95rem;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .nav-brand span { color: var(--sky); font-style: italic; }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--steel); }
+  .nav-cta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sky) !important;
+    border: 1px solid rgba(172,212,241,0.35);
+    padding: 0.3rem 0.9rem;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: rgba(172,212,241,0.1) !important; }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 6rem 3rem 4rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .page-header::before {
+    content: 'DISCLAIMER';
+    position: absolute;
+    right: -0.05em;
+    top: -0.05em;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(4.5rem, 10vw, 9rem);
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(115,153,198,0.06);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .page-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .page-kicker::before { content: ''; display: block; width: 28px; height: 1px; background: var(--steel); }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    max-width: 600px;
+    margin-bottom: 1.2rem;
+  }
+  .page-header h1 em { color: var(--sky); font-style: italic; }
+  .page-header-meta {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
+  .meta-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+  .meta-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--steel);
+    letter-spacing: 0.05em;
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  /* LAYOUT: TOC + CONTENT */
+  .doc-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 5rem;
+    padding: 5rem 0;
+    align-items: start;
+  }
+
+  /* TABLE OF CONTENTS */
+  .toc {
+    position: sticky;
+    top: 80px;
+  }
+  .toc-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-left: 1px solid var(--border);
+  }
+  .toc-list li a {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: var(--mid);
+    text-decoration: none;
+    padding: 0.5rem 0 0.5rem 1rem;
+    border-left: 2px solid transparent;
+    margin-left: -1px;
+    transition: color 0.15s, border-color 0.15s;
+    line-height: 1.4;
+  }
+  .toc-list li a:hover {
+    color: var(--sky);
+    border-left-color: var(--steel);
+  }
+  .toc-list li a.active {
+    color: var(--sky);
+    border-left-color: var(--sky);
+  }
+
+  /* LEGAL SIDEBAR NAV */
+  .toc-legal-links {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .toc-legal-links-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.52rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 0.3rem;
+    display: block;
+  }
+  .toc-legal-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .toc-legal-links a.current { color: var(--sky); }
+  .toc-legal-links a.other { color: var(--mid); }
+  .toc-legal-links a.other:hover { color: var(--steel); }
+
+  /* CONTENT BODY */
+  .doc-content { max-width: 720px; }
+
+  .doc-section {
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 80px;
+  }
+  .doc-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .doc-section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .doc-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  .doc-section h2 em { color: var(--sky); font-style: italic; }
+
+  .doc-section p {
+    font-size: 0.97rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.85;
+    margin-bottom: 1.2rem;
+  }
+  .doc-section p:last-child { margin-bottom: 0; }
+  .doc-section p strong { color: var(--white); font-weight: 600; }
+
+  .doc-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 1.2rem 0;
+  }
+  .doc-section ul li {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.7;
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+  .doc-section ul li::before {
+    content: '—';
+    color: var(--steel);
+    flex-shrink: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    padding-top: 0.2rem;
+  }
+
+  /* HIGHLIGHT BOX — gold/warning */
+  .highlight-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-gold);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+  }
+  .highlight-box p {
+    font-size: 0.9rem !important;
+    color: rgba(255,255,255,0.7) !important;
+    margin-bottom: 0 !important;
+  }
+  .highlight-box strong { color: var(--accent-gold) !important; }
+
+  /* INFO BOX — steel/blue */
+  .info-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--steel);
+    padding: 1.5rem 2rem;
+    margin: 1.5rem 0;
+  }
+  .info-box-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .info-box p {
+    font-size: 0.88rem !important;
+    color: rgba(255,255,255,0.65) !important;
+    margin-bottom: 0 !important;
+    line-height: 1.7 !important;
+  }
+
+  /* KEY DISCLAIMER CARDS */
+  .disclaimer-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+  .disclaimer-card {
+    background: var(--surface);
+    padding: 1.8rem 1.6rem;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .disclaimer-card:hover { background: var(--surface2); }
+  .disclaimer-card::before {
+    content: attr(data-icon);
+    position: absolute;
+    bottom: -0.4rem;
+    right: 0.8rem;
+    font-size: 3.5rem;
+    opacity: 0.07;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .disclaimer-card-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.56rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 0.15rem 0.5rem;
+    display: inline-block;
+    margin-bottom: 0.85rem;
+  }
+  .disclaimer-card-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+  }
+  .disclaimer-card-body {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.58);
+    line-height: 1.65;
+  }
+
+  /* CONTACT BLOCK */
+  .contact-block {
+    background: var(--surface2);
+    border: 1px solid var(--border-strong);
+    padding: 2rem 2.5rem;
+    margin-top: 2rem;
+  }
+  .contact-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .contact-block p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+  }
+  .contact-block a { color: var(--sky); text-decoration: none; }
+  .contact-block a:hover { text-decoration: underline; }
+
+  /* LEGAL NAV FOOTER */
+  .legal-nav-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+  }
+  .legal-nav-row a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--border);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .legal-nav-row a:hover { color: var(--steel); border-color: var(--steel); }
+  .legal-nav-row a.current { color: var(--sky); border-color: rgba(172,212,241,0.35); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 3rem;
+    margin-top: 2rem;
+  }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--steel);
+  }
+  .footer-brand em { font-style: italic; color: var(--sky); }
+  .footer-links-row {
+    display: flex;
+    gap: 2rem;
+  }
+  .footer-links-row a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links-row a:hover { color: var(--steel); }
+  .footer-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    color: rgba(88,87,90,0.6);
+    letter-spacing: 0.08em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.6s ease both; }
+  .fade-up-1 { animation-delay: 0.08s; }
+  .fade-up-2 { animation-delay: 0.18s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .page-header { padding: 4rem 1.5rem 3rem; }
+    .container { padding: 0 1.5rem; }
+    .doc-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .toc { position: static; }
+    .disclaimer-cards { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 1.2rem; text-align: center; }
+    .footer-links-row { justify-content: center; }
+    .page-header-meta { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">Antifragile <span>Africa</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Reports</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="antifragile_africa_weekly_15apr2026.html" class="nav-cta">Latest Issue →</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-kicker fade-up fade-up-1">Legal</div>
+  <h1 class="fade-up fade-up-2">Important <em>Disclaimer</em></h1>
+  <div class="page-header-meta">
+    <div class="meta-item">
+      <span class="meta-label">Effective Date</span>
+      <span class="meta-value">15 April 2026</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Last Updated</span>
+      <span class="meta-value">15 April 2026</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Jurisdiction</span>
+      <span class="meta-value">Republic of South Africa</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Applies To</span>
+      <span class="meta-value">All Reports & Content</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="doc-layout">
+
+    <!-- TABLE OF CONTENTS -->
+    <aside class="toc">
+      <span class="toc-label">Contents</span>
+      <ul class="toc-list">
+        <li><a href="#summary">01 · Summary</a></li>
+        <li><a href="#not-financial-advice">02 · Not Financial Advice</a></li>
+        <li><a href="#no-licensed-activity">03 · No Licensed Activity</a></li>
+        <li><a href="#simulated-data">04 · Simulated & Inferred Data</a></li>
+        <li><a href="#forward-looking">05 · Forward-Looking Statements</a></li>
+        <li><a href="#hidden-trades">06 · Hidden Trades</a></li>
+        <li><a href="#crypto-risk">07 · Cryptocurrency Risk</a></li>
+        <li><a href="#africa-markets">08 · African Market Risk</a></li>
+        <li><a href="#accuracy">09 · Accuracy & Completeness</a></li>
+        <li><a href="#no-relationship">10 · No Advisory Relationship</a></li>
+        <li><a href="#third-party">11 · Third-Party Sources</a></li>
+        <li><a href="#past-performance">12 · Past Performance</a></li>
+        <li><a href="#regulatory">13 · Regulatory Disclaimer</a></li>
+        <li><a href="#tax">14 · Tax Disclaimer</a></li>
+        <li><a href="#liability">15 · Limitation of Liability</a></li>
+        <li><a href="#acceptance">16 · Acceptance</a></li>
+      </ul>
+
+      <div class="toc-legal-links">
+        <span class="toc-legal-links-label">Legal Pages</span>
+        <a href="terms.html" class="other">Terms of Service</a>
+        <a href="privacy.html" class="other">Privacy Policy</a>
+        <a href="disclaimer.html" class="current">Disclaimer ←</a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="doc-content">
+
+      <div class="highlight-box">
+        <p><strong>Read carefully before accessing any content on this site.</strong> This Disclaimer governs your use of all reports, analyses, data, signals, trade ideas, and other content published by Antifragile Africa Crypto. Nothing on this site constitutes financial advice, investment advice, or a recommendation to buy, sell, or hold any asset. You act on this content entirely at your own risk.</p>
+      </div>
+
+      <!-- 01 -->
+      <div class="doc-section" id="summary">
+        <span class="doc-section-num">Section 01</span>
+        <h2>Summary of Key <em>Disclaimers</em></h2>
+        <p>The following is a brief summary of the most critical disclaimers that apply to all content published by Antifragile Africa Crypto. Each point is expanded in detail in the sections that follow. This summary does not replace the full disclaimer — please read all sections carefully.</p>
+
+        <div class="disclaimer-cards">
+          <div class="disclaimer-card" data-icon="📊">
+            <span class="disclaimer-card-label">Not Advice</span>
+            <div class="disclaimer-card-title">No Financial or Investment Advice</div>
+            <div class="disclaimer-card-body">Nothing in any report, analysis, or signal constitutes financial, investment, trading, legal, or tax advice of any kind.</div>
+          </div>
+          <div class="disclaimer-card" data-icon="🔬">
+            <span class="disclaimer-card-label">Simulated</span>
+            <div class="disclaimer-card-title">Data May Be Simulated</div>
+            <div class="disclaimer-card-body">Much of the quantitative data in our reports is modelled or simulated. It is clearly labelled as such and should not be treated as live market data.</div>
+          </div>
+          <div class="disclaimer-card" data-icon="⚠️">
+            <span class="disclaimer-card-label">High Risk</span>
+            <div class="disclaimer-card-title">Cryptocurrency Is High Risk</div>
+            <div class="disclaimer-card-body">Crypto assets are highly volatile, largely unregulated, and can lose their entire value. Frontier market crypto carries additional structural, regulatory, and liquidity risks.</div>
+          </div>
+          <div class="disclaimer-card" data-icon="🏛️">
+            <span class="disclaimer-card-label">No Licence</span>
+            <div class="disclaimer-card-title">No Regulatory Authorisation</div>
+            <div class="disclaimer-card-body">We are not licensed by the FSCA, FCA, SEC, or any equivalent body. We do not provide regulated financial services of any kind.</div>
+          </div>
+          <div class="disclaimer-card" data-icon="📉">
+            <span class="disclaimer-card-label">No Guarantee</span>
+            <div class="disclaimer-card-title">Past Signals ≠ Future Results</div>
+            <div class="disclaimer-card-body">Forward signals, hidden trades, and analytical frameworks have no guaranteed predictive accuracy. All projections may prove materially incorrect.</div>
+          </div>
+          <div class="disclaimer-card" data-icon="🌍">
+            <span class="disclaimer-card-label">Frontier Risk</span>
+            <div class="disclaimer-card-title">African Markets Carry Unique Risks</div>
+            <div class="disclaimer-card-body">Regulatory unpredictability, currency instability, liquidity gaps, and enforcement risk are structural features of African crypto markets, not edge cases.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="doc-section" id="not-financial-advice">
+        <span class="doc-section-num">Section 02</span>
+        <h2>Not Financial Advice</h2>
+        <p><strong>Nothing published by Antifragile Africa Crypto — in any report, article, signal, trade idea, analysis, commentary, or other format — constitutes financial advice, investment advice, trading advice, or any other form of regulated or professional advice.</strong></p>
+        <p>All content is produced for informational, educational, and analytical purposes only. It is intended to help sophisticated readers think about African crypto markets, not to direct their financial decisions. The distinction is material and intentional.</p>
+        <p>Specifically, the following do <strong>not</strong> constitute financial advice:</p>
+        <ul>
+          <li>Executive summaries and macro thesis statements</li>
+          <li>Stablecoin flow analysis and spread data</li>
+          <li>Regulatory classification of African jurisdictions</li>
+          <li>OTC market intelligence and liquidity assessments</li>
+          <li>Capital flow direction analysis</li>
+          <li>"Hidden trades" and asymmetric opportunity descriptions</li>
+          <li>Forward signals and monitoring indicators</li>
+          <li>Antifragility frameworks and narrative analysis</li>
+        </ul>
+        <p>If you require financial advice in connection with any of the themes, assets, or markets discussed in our publication, you must seek that advice from a qualified, licensed financial advisor in your jurisdiction before taking any action.</p>
+      </div>
+
+      <!-- 03 -->
+      <div class="doc-section" id="no-licensed-activity">
+        <span class="doc-section-num">Section 03</span>
+        <h2>No Licensed or Regulated Activity</h2>
+        <p>Antifragile Africa Crypto does not hold, and does not claim to hold, any financial services licence, investment advisory licence, asset management licence, or equivalent regulatory authorisation in any jurisdiction.</p>
+        <p>We are not registered with or authorised by:</p>
+        <ul>
+          <li>The Financial Sector Conduct Authority (FSCA) of South Africa</li>
+          <li>The Prudential Authority (PA) of South Africa</li>
+          <li>The Financial Conduct Authority (FCA) of the United Kingdom</li>
+          <li>The Securities and Exchange Commission (SEC) of the United States</li>
+          <li>The Commodity Futures Trading Commission (CFTC) of the United States</li>
+          <li>Any capital markets regulator in Nigeria, Kenya, or any other African jurisdiction</li>
+          <li>Any equivalent regulatory body in any other country</li>
+        </ul>
+        <p>This publication does not constitute the provision of financial services as defined under the South African Financial Advisory and Intermediary Services Act, 2002 (FAIS Act), the Financial Markets Act, 2012, or any equivalent legislation elsewhere. We are a research and intelligence publication, not a financial services provider.</p>
+
+        <div class="info-box">
+          <span class="info-box-label">FAIS Act Notice</span>
+          <p>Under the South African FAIS Act, rendering financial advice or intermediary services requires authorisation as a Financial Services Provider (FSP). Antifragile Africa Crypto does not hold FSP authorisation and does not provide services that constitute financial advice or intermediary services as defined in that Act.</p>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="doc-section" id="simulated-data">
+        <span class="doc-section-num">Section 04</span>
+        <h2>Simulated & Inferred Data</h2>
+        <p>A significant portion of the quantitative and semi-quantitative data published in our reports is <strong>simulated, modelled, or inferred</strong> rather than sourced from verified live market feeds. This is an intentional feature of our methodology, not a deficiency.</p>
+        <p>The informal and OTC-dominated nature of African crypto markets means that verified, real-time data is structurally unavailable for many of the flows, spreads, and volumes we analyse. Our simulated data is constructed from:</p>
+        <ul>
+          <li>Known macroeconomic conditions, official exchange rates, and inflation statistics</li>
+          <li>Historical patterns in comparable emerging and frontier markets</li>
+          <li>Publicly available P2P platform data and on-chain analytics where accessible</li>
+          <li>Logical inference from observable market behavior and structural conditions</li>
+          <li>Analytical judgement based on the publication's frameworks and expertise</li>
+        </ul>
+        <p>Simulated and estimated figures are clearly labelled in all reports with language such as "simulated," "estimated," "model output," or "inferred." Where a figure is not labelled, it is based on publicly available sources, though we make no guarantee of its accuracy.</p>
+        <p><strong>You must not rely on any data point in our reports as verified market data for the purposes of executing financial transactions, fund accounting, regulatory reporting, or any other purpose requiring factual accuracy.</strong></p>
+      </div>
+
+      <!-- 05 -->
+      <div class="doc-section" id="forward-looking">
+        <span class="doc-section-num">Section 05</span>
+        <h2>Forward-Looking Statements</h2>
+        <p>Our reports regularly contain forward-looking statements — including but not limited to market projections, regulatory forecasts, adoption trend predictions, price spread expectations, and signals for future monitoring. These statements are identified by language such as "watch," "expect," "anticipate," "likely," "may," "signal," "could," and similar expressions.</p>
+        <p>All forward-looking statements are subject to significant risks, uncertainties, and assumptions that may cause actual outcomes to differ materially from those anticipated. Key sources of uncertainty include:</p>
+        <ul>
+          <li>Rapid and unpredictable changes in African regulatory environments</li>
+          <li>Currency crises, devaluations, or capital control changes that alter market dynamics suddenly</li>
+          <li>Global crypto market movements that affect African market conditions indirectly</li>
+          <li>Political developments, civil unrest, or macroeconomic shocks in covered jurisdictions</li>
+          <li>Changes in correspondent banking relationships or fintech infrastructure</li>
+          <li>Actions by central banks, including the CBN, SARB, CBK, and others</li>
+        </ul>
+        <p>We do not undertake any obligation to update forward-looking statements after publication. Statements made in one issue may be superseded by subsequent reports. Always read the most recent issue for our current assessment.</p>
+      </div>
+
+      <!-- 06 -->
+      <div class="doc-section" id="hidden-trades">
+        <span class="doc-section-num">Section 06</span>
+        <h2>Hidden Trades & Opportunity Analysis</h2>
+        <p>Each report includes a section titled "Hidden Trades" that describes asymmetric opportunities identified through our multi-agent analytical process. The inclusion of a trade in this section represents our analytical view that a mispricing or structural opportunity may exist. It does not represent:</p>
+        <ul>
+          <li>A recommendation to buy, sell, or hold any asset, token, security, or financial instrument</li>
+          <li>A solicitation to enter into any investment, business, or financial arrangement</li>
+          <li>A guarantee or projection of returns of any kind</li>
+          <li>Legal, regulatory, or compliance advice regarding the permissibility of any described activity</li>
+          <li>Due diligence on any specific project, protocol, company, or counterparty</li>
+        </ul>
+        <p>Hidden trades are speculative analytical frameworks. Many will prove incorrect. The African frontier crypto markets that our trades relate to carry extreme liquidity risk, regulatory risk, counterparty risk, and operational risk. <strong>Any activity undertaken in reliance on hidden trade analysis is undertaken entirely at your own risk and without recourse to Antifragile Africa Crypto.</strong></p>
+
+        <div class="highlight-box">
+          <p><strong>Important:</strong> Some hidden trades describe activities in regulatory grey zones — including OTC market participation, informal settlement corridor facilitation, and cross-border stablecoin flows. The legality of these activities varies significantly by jurisdiction and individual circumstance. Nothing in our analysis constitutes legal advice on the permissibility of any described activity. You must obtain independent legal advice before engaging in any activity that may have regulatory implications in your jurisdiction.</p>
+        </div>
+      </div>
+
+      <!-- 07 -->
+      <div class="doc-section" id="crypto-risk">
+        <span class="doc-section-num">Section 07</span>
+        <h2>Cryptocurrency Risk Warning</h2>
+        <p>Cryptocurrency and digital assets are among the highest-risk asset classes in existence. Before engaging with any crypto asset or market described in our publication, you should understand and accept the following:</p>
+        <ul>
+          <li><strong>Total loss of capital is possible.</strong> Crypto assets can and do lose their entire value. Stablecoins, while designed to maintain parity with reference assets, are not guaranteed and have previously lost their pegs permanently.</li>
+          <li><strong>Extreme volatility.</strong> Crypto asset prices can move dramatically in short periods, including in response to regulatory announcements, exchange failures, market manipulation, or macro events.</li>
+          <li><strong>Irreversibility.</strong> Blockchain transactions are generally irreversible. Errors in wallet addresses, smart contract interactions, or transfer instructions cannot typically be undone.</li>
+          <li><strong>Counterparty risk.</strong> OTC desks, P2P platforms, and informal market participants carry significant counterparty risk, including the risk of fraud, insolvency, or exit scam.</li>
+          <li><strong>Custody risk.</strong> Self-custody of digital assets exposes holders to risks of key loss, device failure, and theft. Third-party custody introduces additional institutional counterparty risk.</li>
+          <li><strong>Regulatory risk.</strong> The legal status of crypto assets changes frequently and without warning. Activities that are lawful today may become restricted or prohibited tomorrow.</li>
+          <li><strong>Liquidity risk.</strong> Many of the markets described in our reports are illiquid relative to developed market standards. Large positions may not be exitable at described prices.</li>
+        </ul>
+        <p>You should only engage with crypto assets if you fully understand these risks, have conducted your own due diligence, and have obtained appropriate professional advice.</p>
+      </div>
+
+      <!-- 08 -->
+      <div class="doc-section" id="africa-markets">
+        <span class="doc-section-num">Section 08</span>
+        <h2>African Market Risk</h2>
+        <p>In addition to the general risks associated with cryptocurrency, engagement with African crypto markets carries specific structural risks that are a core feature — not a peripheral concern — of the landscape we analyse.</p>
+        <ul>
+          <li><strong>Regulatory unpredictability.</strong> African crypto regulation changes with little warning and can range from full prohibition to tacit tolerance within a single jurisdiction within a short period. Nigeria's regulatory history is illustrative but not unique.</li>
+          <li><strong>Currency instability.</strong> The FX regimes we discuss — including managed floats, parallel markets, and controlled devaluations — are inherently unpredictable and can result in rapid, large losses for positions denominated in or exposed to local currencies.</li>
+          <li><strong>Banking access risk.</strong> Access to banking services for crypto-related activity is restricted or denied in many African jurisdictions. This can make entry and exit from positions difficult or impossible at desired times.</li>
+          <li><strong>Enforcement risk.</strong> Even in jurisdictions where crypto activity is technically tolerated, enforcement is inconsistent and can shift suddenly. OTC desk operators, P2P platform users, and crypto businesses all face real risk of enforcement action.</li>
+          <li><strong>Infrastructure risk.</strong> Internet connectivity, power supply, and mobile network reliability vary significantly across African markets and can affect the ability to execute or monitor positions.</li>
+          <li><strong>Data scarcity.</strong> The absence of reliable, verifiable market data — which our methodology acknowledges and works around — means that any analytical framework, including ours, operates with a higher degree of uncertainty than is typical in developed markets.</li>
+        </ul>
+        <p>These risks are not presented to discourage engagement — they are the structural features that create the opportunities our publication identifies. But they must be understood, accepted, and managed by anyone acting on our analysis.</p>
+      </div>
+
+      <!-- 09 -->
+      <div class="doc-section" id="accuracy">
+        <span class="doc-section-num">Section 09</span>
+        <h2>Accuracy & Completeness</h2>
+        <p>We take significant care to ensure that our analysis is reasoned, internally consistent, and grounded in available information. However, we make <strong>no representation or warranty</strong> — express or implied — as to the accuracy, completeness, timeliness, or fitness for purpose of any content published in our reports.</p>
+        <p>Specific limitations you should be aware of include:</p>
+        <ul>
+          <li>Our regulatory classifications reflect our analytical assessment as of the publication date and may be outdated by the time you read them</li>
+          <li>Volume estimates and spread data are simulated and may differ materially from actual market conditions</li>
+          <li>Country-level assessments are necessarily generalised and may not reflect local nuances or sub-national variations</li>
+          <li>OTC market intelligence is inferred from structural conditions and may not reflect actual desk behavior at any given moment</li>
+          <li>Historical patterns cited in our analysis may not recur and should not be treated as predictive</li>
+        </ul>
+        <p>We do not commit to correcting, updating, or retracting content after publication except at our sole discretion. Each issue represents a snapshot of our analytical view at the time of writing.</p>
+      </div>
+
+      <!-- 10 -->
+      <div class="doc-section" id="no-relationship">
+        <span class="doc-section-num">Section 10</span>
+        <h2>No Advisory Relationship</h2>
+        <p>Your access to, subscription to, or use of this publication does not create any advisory, fiduciary, contractual, or professional relationship between you and Antifragile Africa Crypto or any of its authors, contributors, or affiliates.</p>
+        <p>We owe you no duty of care in connection with your financial decisions. We do not know your financial circumstances, risk tolerance, investment objectives, tax position, or regulatory obligations. We cannot and do not take these factors into account in producing our reports. Our content is not personalised or tailored to any individual reader's situation.</p>
+        <p>Any impression that our content is directed specifically at you, or that we have a relationship with you beyond that of publisher and reader, is incorrect. If you require personalised financial guidance, you must engage a licensed financial advisor who can consider your specific circumstances.</p>
+      </div>
+
+      <!-- 11 -->
+      <div class="doc-section" id="third-party">
+        <span class="doc-section-num">Section 11</span>
+        <h2>Third-Party Sources & References</h2>
+        <p>Our reports may reference, cite, or build upon data, analysis, or commentary from third-party sources, including public data providers, news organisations, academic research, and industry publications. We do not independently verify all third-party sources and make no warranty as to their accuracy, currency, or reliability.</p>
+        <p>References to third-party sources do not constitute endorsement of those sources or of the products, services, or organisations they relate to. We are not responsible for the content, accuracy, or availability of any third-party website, publication, or platform referenced in our reports.</p>
+        <p>Where our analysis departs from, critiques, or contradicts third-party sources — including established analytics firms such as Chainalysis, Elliptic, or others — our disagreement reflects our analytical assessment, not factual claims about those organisations' outputs. Readers should consult primary sources directly and form their own views.</p>
+      </div>
+
+      <!-- 12 -->
+      <div class="doc-section" id="past-performance">
+        <span class="doc-section-num">Section 12</span>
+        <h2>Past Performance & Prior Signals</h2>
+        <p><strong>Past performance is not indicative of future results.</strong> This principle applies with particular force to frontier crypto markets, where structural conditions can shift rapidly and historical patterns may not repeat.</p>
+        <p>Any signals, trade ideas, or frameworks from prior issues of this publication that proved directionally correct should not be interpreted as evidence of predictive accuracy, analytical superiority, or the reliability of future signals. Any that proved incorrect should be weighted accordingly.</p>
+        <p>Our memory and RAG system, which references prior reports to build context for current analysis, is designed to improve internal consistency and pattern recognition — not to establish a track record of investment performance. The publication does not track, report, or verify the real-world outcomes of any trade ideas or signals published in previous issues.</p>
+      </div>
+
+      <!-- 13 -->
+      <div class="doc-section" id="regulatory">
+        <span class="doc-section-num">Section 13</span>
+        <h2>Regulatory Disclaimer</h2>
+        <p>The regulatory classifications, assessments, and commentary in our reports are based on our analytical interpretation of publicly available information and observable market behavior. They do not constitute legal advice and should not be relied upon as an authoritative statement of the law in any jurisdiction.</p>
+        <p>Regulatory positions change frequently and without notice across all 54 African states we cover. A jurisdiction classified as "OPEN" in our regulatory map may impose restrictions after publication. A jurisdiction classified as "RESTRICTIVE" may relax its stance. Our classifications are snapshots, not guarantees.</p>
+        <p>If you are conducting business, structuring investments, or making operational decisions in any African jurisdiction based on regulatory considerations, you must obtain current, jurisdiction-specific legal advice from qualified legal practitioners admitted in the relevant jurisdiction. Our analysis is not a substitute for such advice.</p>
+
+        <div class="info-box">
+          <span class="info-box-label">AML / CFT Notice</span>
+          <p>Some activities described in our reports — including OTC market participation, cross-border stablecoin flows, and informal settlement corridor facilitation — may have anti-money laundering (AML) and counter-financing of terrorism (CFT) implications in various jurisdictions. Compliance with applicable AML/CFT laws and regulations is entirely your responsibility. Nothing in our analysis addresses or mitigates these obligations.</p>
+        </div>
+      </div>
+
+      <!-- 14 -->
+      <div class="doc-section" id="tax">
+        <span class="doc-section-num">Section 14</span>
+        <h2>Tax Disclaimer</h2>
+        <p>Nothing in this publication constitutes tax advice. The tax treatment of cryptocurrency transactions, stablecoin holdings, OTC trading activity, cross-border capital flows, and related activities varies significantly by jurisdiction and individual circumstance.</p>
+        <p>In South Africa, the South African Revenue Service (SARS) treats crypto assets as assets for income tax and capital gains tax purposes. In Nigeria, Kenya, and other African jurisdictions, tax treatment of crypto activity is evolving and in some cases unclear. In many jurisdictions, informal or OTC crypto activity may have undisclosed tax obligations.</p>
+        <p>You are solely responsible for understanding and meeting your tax obligations in connection with any crypto activity in any jurisdiction. You should consult a qualified tax advisor before engaging in any activity that may have tax consequences.</p>
+      </div>
+
+      <!-- 15 -->
+      <div class="doc-section" id="liability">
+        <span class="doc-section-num">Section 15</span>
+        <h2>Limitation of Liability</h2>
+        <p>To the maximum extent permitted by applicable law, Antifragile Africa Crypto, its authors, contributors, editors, and affiliates expressly disclaim all liability for any loss, damage, cost, or expense of any nature — direct, indirect, incidental, consequential, special, or punitive — arising from or in connection with:</p>
+        <ul>
+          <li>Any reliance on content published in this or any other issue of the publication</li>
+          <li>Any investment, trading, business, or financial decision made in connection with our content</li>
+          <li>Any inaccuracy, error, omission, or outdated information in any published content</li>
+          <li>Any hidden trade, forward signal, or analytical framework that proves incorrect or causes loss</li>
+          <li>Any regulatory change, enforcement action, or legal consequence arising from activities described in our reports</li>
+          <li>Any loss arising from cryptocurrency market movements, exchange failures, or counterparty defaults</li>
+          <li>Any loss of data, access, or functionality in connection with the publication</li>
+        </ul>
+        <p>This limitation applies regardless of how the liability arises — whether in contract, tort, negligence, statutory duty, or otherwise — and regardless of whether we were advised of the possibility of such loss. Where applicable law does not permit full exclusion of liability, our liability is limited to the minimum extent permitted by law.</p>
+      </div>
+
+      <!-- 16 -->
+      <div class="doc-section" id="acceptance">
+        <span class="doc-section-num">Section 16</span>
+        <h2>Acceptance of This Disclaimer</h2>
+        <p>By accessing any page of this website, reading any report, subscribing to any distribution list, or otherwise engaging with content produced by Antifragile Africa Crypto, you confirm that:</p>
+        <ul>
+          <li>You have read and understood this Disclaimer in full</li>
+          <li>You accept the limitations, disclaimers, and risk warnings set out above</li>
+          <li>You are accessing this content as a sophisticated, institutional, or professional reader and not as a retail investor seeking personal financial guidance</li>
+          <li>You will not rely on any content as financial, investment, legal, tax, or regulatory advice</li>
+          <li>You will seek independent professional advice before taking any action in connection with the themes, markets, or opportunities discussed</li>
+          <li>You understand that simulated data is not live market data and will not use it as such</li>
+          <li>You accept all risks associated with cryptocurrency and African frontier market engagement, as described in this Disclaimer</li>
+        </ul>
+        <p>If you do not accept this Disclaimer in full, you must cease accessing this publication immediately.</p>
+
+        <div class="contact-block">
+          <span class="contact-label">Questions About This Disclaimer</span>
+          <p><strong style="color:var(--white);">Antifragile Africa Crypto</strong></p>
+          <p>Jurisdiction: Republic of South Africa</p>
+          <p>If you have questions about the scope or application of this Disclaimer, please contact us via the email address associated with your subscription or via the contact details provided in the publication. We aim to respond to all legal queries within ten (10) business days.</p>
+        </div>
+
+        <div class="legal-nav-row">
+          <a href="terms.html">Terms of Service</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="disclaimer.html" class="current">Disclaimer</a>
+          <a href="index.html">← Back to Reports</a>
+        </div>
+      </div>
+
+    </div><!-- /doc-content -->
+  </div><!-- /doc-layout -->
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-brand">Antifragile <em>Africa</em> Crypto</div>
+    <div class="footer-links-row">
+      <a href="index.html">Reports</a>
+      <a href="about.html">About</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+    <span class="footer-note">© 2026 · Not financial advice · For institutional use only</span>
+  </div>
+</footer>
+
+<script>
+  // Highlight active TOC item on scroll
+  const sections = document.querySelectorAll('.doc-section');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
