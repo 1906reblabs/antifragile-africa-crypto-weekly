@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Antifragile Africa Crypto</title>
+<meta name="description" content="Terms of Service for Antifragile Africa Crypto — institutional intelligence on African crypto markets.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #00355f;
+    --steel: #7399c6;
+    --sky: #acd4f1;
+    --charcoal: #231f20;
+    --mid: #58575a;
+    --white: #ffffff;
+    --accent-gold: #c9a84c;
+    --bg: #0a1a2a;
+    --surface: #0f2236;
+    --surface2: #162d46;
+    --border: rgba(115, 153, 198, 0.18);
+    --border-strong: rgba(115, 153, 198, 0.35);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1000; opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    background: rgba(10,26,42,0.97);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-strong);
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 0.95rem;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .nav-brand span { color: var(--sky); font-style: italic; }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--steel); }
+  .nav-cta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sky) !important;
+    border: 1px solid rgba(172,212,241,0.35);
+    padding: 0.3rem 0.9rem;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: rgba(172,212,241,0.1) !important; }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 6rem 3rem 4rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .page-header::before {
+    content: 'TERMS';
+    position: absolute;
+    right: -0.05em;
+    top: -0.1em;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(7rem, 16vw, 14rem);
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(115,153,198,0.06);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .page-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .page-kicker::before { content: ''; display: block; width: 28px; height: 1px; background: var(--steel); }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    max-width: 600px;
+    margin-bottom: 1.2rem;
+  }
+  .page-header h1 em { color: var(--sky); font-style: italic; }
+  .page-header-meta {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
+  .meta-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+  .meta-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--steel);
+    letter-spacing: 0.05em;
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  /* LAYOUT: TOC + CONTENT */
+  .doc-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 5rem;
+    padding: 5rem 0;
+    align-items: start;
+  }
+
+  /* TABLE OF CONTENTS */
+  .toc {
+    position: sticky;
+    top: 80px;
+  }
+  .toc-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-left: 1px solid var(--border);
+  }
+  .toc-list li a {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: var(--mid);
+    text-decoration: none;
+    padding: 0.5rem 0 0.5rem 1rem;
+    border-left: 2px solid transparent;
+    margin-left: -1px;
+    transition: color 0.2s, border-color 0.2s;
+    line-height: 1.4;
+  }
+  .toc-list li a:hover {
+    color: var(--sky);
+    border-left-color: var(--steel);
+  }
+  .toc-list li a.active {
+    color: var(--sky);
+    border-left-color: var(--sky);
+  }
+
+  /* CONTENT BODY */
+  .doc-content { max-width: 720px; }
+
+  .doc-section {
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 80px;
+  }
+  .doc-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .doc-section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .doc-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  .doc-section h2 em { color: var(--sky); font-style: italic; }
+
+  .doc-section p {
+    font-size: 0.97rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.85;
+    margin-bottom: 1.2rem;
+  }
+  .doc-section p:last-child { margin-bottom: 0; }
+  .doc-section p strong { color: var(--white); font-weight: 600; }
+
+  .doc-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 1.2rem 0;
+  }
+  .doc-section ul li {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.7;
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+  .doc-section ul li::before {
+    content: '—';
+    color: var(--steel);
+    flex-shrink: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    padding-top: 0.2rem;
+  }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-gold);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+  }
+  .highlight-box p {
+    font-size: 0.9rem !important;
+    color: rgba(255,255,255,0.7) !important;
+    margin-bottom: 0 !important;
+  }
+  .highlight-box strong { color: var(--accent-gold) !important; }
+
+  /* CONTACT BLOCK */
+  .contact-block {
+    background: var(--surface2);
+    border: 1px solid var(--border-strong);
+    padding: 2rem 2.5rem;
+    margin-top: 2rem;
+  }
+  .contact-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .contact-block p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+  }
+  .contact-block a {
+    color: var(--sky);
+    text-decoration: none;
+  }
+  .contact-block a:hover { text-decoration: underline; }
+
+  /* LEGAL NAV */
+  .legal-nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+  }
+  .legal-nav a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--border);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .legal-nav a:hover { color: var(--steel); border-color: var(--steel); }
+  .legal-nav a.current { color: var(--sky); border-color: rgba(172,212,241,0.35); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 3rem;
+    margin-top: 2rem;
+  }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--steel);
+  }
+  .footer-brand em { font-style: italic; color: var(--sky); }
+  .footer-links-row {
+    display: flex;
+    gap: 2rem;
+  }
+  .footer-links-row a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links-row a:hover { color: var(--steel); }
+  .footer-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    color: rgba(88,87,90,0.6);
+    letter-spacing: 0.08em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.6s ease both; }
+  .fade-up-1 { animation-delay: 0.08s; }
+  .fade-up-2 { animation-delay: 0.18s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .page-header { padding: 4rem 1.5rem 3rem; }
+    .container { padding: 0 1.5rem; }
+    .doc-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .toc { position: static; }
+    .footer-bottom { flex-direction: column; gap: 1.2rem; text-align: center; }
+    .footer-links-row { justify-content: center; }
+  }
+
+  /* TOC active tracking */
+  .toc-list li a { transition: color 0.15s, border-color 0.15s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">Antifragile <span>Africa</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Reports</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="antifragile_africa_weekly_15apr2026.html" class="nav-cta">Latest Issue →</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-kicker fade-up fade-up-1">Legal</div>
+  <h1 class="fade-up fade-up-2">Terms of <em>Service</em></h1>
+  <div class="page-header-meta">
+    <div class="meta-item">
+      <span class="meta-label">Effective Date</span>
+      <span class="meta-value">15 April 2026</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Last Updated</span>
+      <span class="meta-value">15 April 2026</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Jurisdiction</span>
+      <span class="meta-value">Republic of South Africa</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Publication</span>
+      <span class="meta-value">Antifragile Africa Crypto</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="doc-layout">
+
+    <!-- TABLE OF CONTENTS -->
+    <aside class="toc">
+      <span class="toc-label">Contents</span>
+      <ul class="toc-list">
+        <li><a href="#acceptance">01 · Acceptance of Terms</a></li>
+        <li><a href="#description">02 · Description of Service</a></li>
+        <li><a href="#not-financial-advice">03 · Not Financial Advice</a></li>
+        <li><a href="#eligibility">04 · Eligibility & Access</a></li>
+        <li><a href="#intellectual-property">05 · Intellectual Property</a></li>
+        <li><a href="#permitted-use">06 · Permitted Use</a></li>
+        <li><a href="#prohibited">07 · Prohibited Conduct</a></li>
+        <li><a href="#simulated-data">08 · Simulated Data</a></li>
+        <li><a href="#no-warranty">09 · No Warranty</a></li>
+        <li><a href="#limitation">10 · Limitation of Liability</a></li>
+        <li><a href="#indemnification">11 · Indemnification</a></li>
+        <li><a href="#third-party">12 · Third-Party Links</a></li>
+        <li><a href="#modifications">13 · Modifications</a></li>
+        <li><a href="#termination">14 · Termination</a></li>
+        <li><a href="#governing-law">15 · Governing Law</a></li>
+        <li><a href="#contact">16 · Contact</a></li>
+      </ul>
+
+      <div class="legal-nav" style="margin-top:2rem; padding-top:2rem; flex-direction:column; gap:0.5rem;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:0.52rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--mid); margin-bottom:0.3rem;">Legal Pages</span>
+        <a href="terms.html" class="legal-nav" style="display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--sky); text-decoration:none;">Terms of Service ←</a>
+        <a href="privacy.html" style="font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--mid); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--steel)'" onmouseout="this.style.color='var(--mid)'">Privacy Policy</a>
+        <a href="disclaimer.html" style="font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--mid); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--steel)'" onmouseout="this.style.color='var(--mid)'">Disclaimer</a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="doc-content">
+
+      <div class="highlight-box">
+        <p><strong>Important:</strong> By accessing or using this publication, you agree to these Terms of Service in full. If you do not agree, you must immediately cease use of this website and all associated content. These terms constitute a legally binding agreement between you and Antifragile Africa Crypto.</p>
+      </div>
+
+      <!-- 01 -->
+      <div class="doc-section" id="acceptance">
+        <span class="doc-section-num">Section 01</span>
+        <h2>Acceptance of Terms</h2>
+        <p>By accessing, browsing, subscribing to, or using any part of the Antifragile Africa Crypto website, publication, reports, or associated content (collectively, the "Service"), you acknowledge that you have read, understood, and agree to be bound by these Terms of Service ("Terms"), our Privacy Policy, and our Disclaimer, all of which are incorporated herein by reference.</p>
+        <p>These Terms apply to all visitors, subscribers, and users of the Service regardless of how they access it — whether via web browser, direct download, email distribution, or any other means. If you are accessing the Service on behalf of a legal entity such as a company, fund, or organisation, you represent that you have authority to bind that entity to these Terms.</p>
+        <p>Your continued use of the Service following any modification to these Terms constitutes your acceptance of the revised Terms.</p>
+      </div>
+
+      <!-- 02 -->
+      <div class="doc-section" id="description">
+        <span class="doc-section-num">Section 02</span>
+        <h2>Description of Service</h2>
+        <p>Antifragile Africa Crypto is a weekly intelligence publication focused on African cryptocurrency markets. The Service provides:</p>
+        <ul>
+          <li>Macro-level analysis and commentary on African crypto market dynamics</li>
+          <li>Stablecoin flow intelligence and simulated P2P spread data</li>
+          <li>Regulatory classification and analysis across African jurisdictions</li>
+          <li>OTC and informal market intelligence based on inference and simulation</li>
+          <li>Capital flow analysis and speculative "hidden trades" commentary</li>
+          <li>Forward-looking signals and indicators for institutional consideration</li>
+        </ul>
+        <p>The Service is designed for institutional investors, professional allocators, researchers, and sophisticated market participants. It is <strong>not</strong> designed for, and should not be used by, retail investors making personal financial decisions without professional advice.</p>
+      </div>
+
+      <!-- 03 -->
+      <div class="doc-section" id="not-financial-advice">
+        <span class="doc-section-num">Section 03</span>
+        <h2>Not Financial Advice</h2>
+        <p><strong>Nothing in this Service constitutes financial advice, investment advice, trading advice, legal advice, tax advice, or any other form of professional advice.</strong> The content published by Antifragile Africa Crypto is for informational and educational purposes only.</p>
+        <p>The publication does not hold a financial services licence, investment advisory licence, or any equivalent regulatory authorisation in South Africa, the United Kingdom, the United States, or any other jurisdiction. We are not registered with the Financial Sector Conduct Authority (FSCA), the Financial Conduct Authority (FCA), the Securities and Exchange Commission (SEC), or any equivalent body.</p>
+        <p>Before making any investment, trading, or financial decision based on content published in this Service, you should seek independent advice from a qualified and licensed financial advisor, legal counsel, or tax professional. Past performance of any instrument, strategy, or trade discussed is not indicative of future results.</p>
+        <p>All "hidden trades," opportunities, and forward signals discussed in the Service are speculative commentary and analytical perspectives only — they are expressly not buy, sell, or hold recommendations.</p>
+      </div>
+
+      <!-- 04 -->
+      <div class="doc-section" id="eligibility">
+        <span class="doc-section-num">Section 04</span>
+        <h2>Eligibility & Access</h2>
+        <p>You must be at least 18 years of age to access or use this Service. By using the Service, you represent and warrant that you are 18 or older and legally capable of entering into binding agreements in your jurisdiction.</p>
+        <p>Access to the Service may be restricted in certain jurisdictions where the content would be unlawful or where we have determined access is inappropriate. It is your responsibility to determine whether access to and use of the Service is lawful in your jurisdiction. We make no representation that the Service is appropriate or available in all locations.</p>
+        <p>We reserve the right to restrict or terminate access to the Service for any user at any time, with or without notice, for any reason including but not limited to violation of these Terms.</p>
+      </div>
+
+      <!-- 05 -->
+      <div class="doc-section" id="intellectual-property">
+        <span class="doc-section-num">Section 05</span>
+        <h2>Intellectual Property</h2>
+        <p>All content published by Antifragile Africa Crypto — including but not limited to reports, analyses, frameworks, trade ideas, regulatory maps, data visualisations, design, branding, and written commentary — is the exclusive intellectual property of Antifragile Africa Crypto and is protected by applicable copyright, trademark, and intellectual property laws.</p>
+        <p>You are granted a limited, non-exclusive, non-transferable, revocable licence to access and use the content for your own personal or internal professional research and reference. This licence does not include:</p>
+        <ul>
+          <li>Republishing, reproducing, or redistributing any content without prior written permission</li>
+          <li>Selling, licensing, or commercially exploiting any content</li>
+          <li>Creating derivative works based on the content for public distribution</li>
+          <li>Systematic downloading, scraping, or bulk extraction of content</li>
+          <li>Removing or altering any copyright, trademark, or proprietary notices</li>
+        </ul>
+        <p>Brief quotation for commentary, criticism, or academic purposes is permitted provided that clear attribution is given to Antifragile Africa Crypto and the specific publication date is cited. Any such attribution must not imply endorsement or affiliation.</p>
+      </div>
+
+      <!-- 06 -->
+      <div class="doc-section" id="permitted-use">
+        <span class="doc-section-num">Section 06</span>
+        <h2>Permitted Use</h2>
+        <p>Subject to these Terms, you may use the Service to:</p>
+        <ul>
+          <li>Read, access, and reference reports for personal or internal professional research</li>
+          <li>Share links to publicly available pages of the Service</li>
+          <li>Quote brief passages (clearly attributed) in research, journalism, or academic work</li>
+          <li>Subscribe to receive reports via email distribution where offered</li>
+          <li>Discuss and reference the Service's analytical frameworks in professional contexts</li>
+        </ul>
+        <p>All permitted use must be in accordance with applicable law, must not infringe the rights of third parties, and must not damage the reputation or commercial interests of Antifragile Africa Crypto.</p>
+      </div>
+
+      <!-- 07 -->
+      <div class="doc-section" id="prohibited">
+        <span class="doc-section-num">Section 07</span>
+        <h2>Prohibited Conduct</h2>
+        <p>You agree not to engage in any of the following conduct in connection with the Service:</p>
+        <ul>
+          <li>Using the content to provide financial advice or investment recommendations to third parties without proper licensing</li>
+          <li>Misrepresenting the content as your own original work or as that of another publication</li>
+          <li>Using automated tools to scrape, index, or bulk-download content without authorisation</li>
+          <li>Attempting to gain unauthorised access to any part of the Service or its underlying infrastructure</li>
+          <li>Transmitting malware, spam, or other harmful code in connection with the Service</li>
+          <li>Using the Service in any way that violates applicable laws or regulations, including AML/CFT laws</li>
+          <li>Framing or mirroring any part of the Service on another website without consent</li>
+          <li>Using the Service to facilitate market manipulation, front-running, or unlawful trading activity</li>
+        </ul>
+      </div>
+
+      <!-- 08 -->
+      <div class="doc-section" id="simulated-data">
+        <span class="doc-section-num">Section 08</span>
+        <h2>Simulated & Inferred Data</h2>
+        <p>The Service makes use of <strong>simulated data, inferred signals, and modelled estimates</strong> where real-time or verifiable data is unavailable. Such data is clearly labelled throughout our reports (e.g. "simulated," "estimated," "model output").</p>
+        <p>Simulated data is constructed using reasonable inference from known macroeconomic conditions, historical patterns, publicly available information, and analytical judgement. It is not sourced from live data feeds, licensed financial data providers, or verified market sources unless explicitly stated.</p>
+        <p>You acknowledge and accept that simulated data may differ materially from actual market conditions, and that Antifragile Africa Crypto makes no warranty as to the accuracy, completeness, or fitness for purpose of any simulated or estimated figure. You agree not to rely on simulated data as the sole basis for any financial or investment decision.</p>
+      </div>
+
+      <!-- 09 -->
+      <div class="doc-section" id="no-warranty">
+        <span class="doc-section-num">Section 09</span>
+        <h2>No Warranty</h2>
+        <p>The Service is provided on an <strong>"as is" and "as available" basis</strong>, without any warranty of any kind, express or implied. To the fullest extent permitted by applicable law, Antifragile Africa Crypto expressly disclaims all warranties, including but not limited to:</p>
+        <ul>
+          <li>Implied warranties of merchantability and fitness for a particular purpose</li>
+          <li>Warranties of accuracy, completeness, or timeliness of content</li>
+          <li>Warranties that the Service will be uninterrupted, error-free, or secure</li>
+          <li>Warranties that any specific outcome will result from use of the content</li>
+        </ul>
+        <p>We do not warrant that any information published in the Service is current, accurate, or complete at the time of access. Market conditions change rapidly and content may become outdated without notice.</p>
+      </div>
+
+      <!-- 10 -->
+      <div class="doc-section" id="limitation">
+        <span class="doc-section-num">Section 10</span>
+        <h2>Limitation of Liability</h2>
+        <p>To the maximum extent permitted by applicable law, Antifragile Africa Crypto, its authors, contributors, and affiliates shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from or related to:</p>
+        <ul>
+          <li>Your use of or reliance on any content published in the Service</li>
+          <li>Any investment, trading, or financial decision made based on the Service</li>
+          <li>Errors, omissions, or inaccuracies in any published content</li>
+          <li>Interruption or unavailability of the Service</li>
+          <li>Loss of data, profits, revenue, or business opportunity</li>
+          <li>Any action taken or not taken based on forward signals or hidden trade commentary</li>
+        </ul>
+        <p>This limitation applies regardless of whether such damages were foreseeable and regardless of the form of action — whether in contract, tort, negligence, strict liability, or otherwise. Where applicable law does not permit the exclusion of certain warranties or limitation of certain liabilities, our liability shall be limited to the minimum extent permitted.</p>
+      </div>
+
+      <!-- 11 -->
+      <div class="doc-section" id="indemnification">
+        <span class="doc-section-num">Section 11</span>
+        <h2>Indemnification</h2>
+        <p>You agree to indemnify, defend, and hold harmless Antifragile Africa Crypto and its authors, contributors, and affiliates from and against any claims, liabilities, damages, losses, and expenses — including reasonable legal fees — arising out of or in connection with:</p>
+        <ul>
+          <li>Your use of the Service in violation of these Terms</li>
+          <li>Your violation of any applicable law or regulation</li>
+          <li>Your infringement of any intellectual property or other rights of any third party</li>
+          <li>Any misrepresentation made by you in connection with the Service</li>
+        </ul>
+      </div>
+
+      <!-- 12 -->
+      <div class="doc-section" id="third-party">
+        <span class="doc-section-num">Section 12</span>
+        <h2>Third-Party Links & Content</h2>
+        <p>The Service may reference, link to, or cite third-party sources, publications, platforms, or data providers. Such references are provided for informational context only. Antifragile Africa Crypto does not endorse, control, or accept responsibility for the content, privacy practices, or accuracy of any third-party source.</p>
+        <p>Access to third-party websites or services linked from the Service is at your own risk, and subject to the terms and conditions of those third parties. We encourage you to review the terms and privacy policies of any third-party services you access in connection with our content.</p>
+      </div>
+
+      <!-- 13 -->
+      <div class="doc-section" id="modifications">
+        <span class="doc-section-num">Section 13</span>
+        <h2>Modifications to These Terms</h2>
+        <p>We reserve the right to modify these Terms at any time. When we make material changes, we will update the "Last Updated" date at the top of this page. In some cases, we may provide additional notice such as a notice in the publication itself.</p>
+        <p>Your continued use of the Service after any modification constitutes your acceptance of the new Terms. If you do not agree to the modified Terms, you must cease using the Service immediately.</p>
+        <p>We also reserve the right to modify, suspend, or discontinue the Service — or any part of it — at any time without notice and without liability to you.</p>
+      </div>
+
+      <!-- 14 -->
+      <div class="doc-section" id="termination">
+        <span class="doc-section-num">Section 14</span>
+        <h2>Termination</h2>
+        <p>We may terminate or suspend your access to the Service immediately, without prior notice or liability, for any reason, including but not limited to breach of these Terms. Upon termination, your right to use the Service will immediately cease.</p>
+        <p>All provisions of these Terms which by their nature should survive termination — including ownership provisions, warranty disclaimers, indemnification, and limitations of liability — shall survive termination.</p>
+      </div>
+
+      <!-- 15 -->
+      <div class="doc-section" id="governing-law">
+        <span class="doc-section-num">Section 15</span>
+        <h2>Governing Law & Dispute Resolution</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the Republic of South Africa, without regard to its conflict of law principles. Any dispute arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of South Africa.</p>
+        <p>Before initiating any formal legal proceedings, the parties agree to attempt in good faith to resolve any dispute through direct negotiation. If negotiation fails, disputes may be referred to mediation under the rules of the Arbitration Foundation of Southern Africa (AFSA) before proceeding to litigation.</p>
+        <p>If any provision of these Terms is found to be unenforceable or invalid under applicable law, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.</p>
+      </div>
+
+      <!-- 16 -->
+      <div class="doc-section" id="contact">
+        <span class="doc-section-num">Section 16</span>
+        <h2>Contact</h2>
+        <p>If you have questions, concerns, or requests relating to these Terms of Service, please contact us. We aim to respond to all legal enquiries within ten (10) business days.</p>
+        <div class="contact-block">
+          <span class="contact-label">Legal Contact</span>
+          <p><strong style="color:var(--white);">Antifragile Africa Crypto</strong></p>
+          <p>Publication of record: Antifragile Africa Crypto</p>
+          <p>Jurisdiction: Republic of South Africa</p>
+          <p>For legal matters, intellectual property queries, or Terms-related questions, please use the contact information provided in the publication footer or reach out via the email address associated with your subscription.</p>
+        </div>
+
+        <div class="legal-nav">
+          <a href="terms.html" class="current">Terms of Service</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="disclaimer.html">Disclaimer</a>
+          <a href="index.html">← Back to Reports</a>
+        </div>
+      </div>
+
+    </div><!-- /doc-content -->
+  </div><!-- /doc-layout -->
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-brand">Antifragile <em>Africa</em> Crypto</div>
+    <div class="footer-links-row">
+      <a href="index.html">Reports</a>
+      <a href="about.html">About</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+    <span class="footer-note">© 2026 · Not financial advice · For institutional use only</span>
+  </div>
+</footer>
+
+<script>
+  // Highlight active TOC item on scroll
+  const sections = document.querySelectorAll('.doc-section');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
